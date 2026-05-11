@@ -63,7 +63,7 @@ END pkg_bank_reports;
 SET SERVEROUTPUT ON;
 BEGIN
     DBMS_OUTPUT.PUT_LINE('--- PACKAGE DEMONSTRATION ---');
-    pkg_bank_reports.generate_branch_summary('LHR-001');
+    pkg_bank_reports.generate_branch_summary('QSB0000001');
     pkg_bank_reports.print_customer_info(1);
     DBMS_OUTPUT.PUT_LINE('Total Loans Given: $' || pkg_bank_reports.get_total_loans_given());
     DBMS_OUTPUT.PUT_LINE('-----------------------------');

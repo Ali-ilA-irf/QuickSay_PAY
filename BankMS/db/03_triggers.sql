@@ -3,7 +3,6 @@
 -- Script  : 03_triggers.sql
 -- Purpose : All triggers - Auto ID, Business Logic, Audit Logs
 -- ============================================================
-
 SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE TRIGGER trg_before_employee_ins

@@ -47,7 +47,7 @@ DECLARE
 BEGIN
     DBMS_OUTPUT.PUT_LINE('--- BRANCH ACCOUNTS REPORT ---');
     
-    OPEN c_branch_accounts('LHR-001');
+    OPEN c_branch_accounts('QSB0000003');
     LOOP
         FETCH c_branch_accounts INTO v_acc, v_bal;
         EXIT WHEN c_branch_accounts%NOTFOUND;

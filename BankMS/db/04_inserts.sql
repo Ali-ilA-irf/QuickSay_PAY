@@ -54,6 +54,8 @@ INSERT INTO CARD (card_number, card_type, date_of_issuance, date_of_expiry, cvv_
 INSERT INTO CARD (card_number, card_type, date_of_issuance, date_of_expiry, cvv_code, ref_account_id) VALUES ('4222333344445555', 'DEBIT', SYSDATE - 400, SYSDATE + 695, '789', 3);
 INSERT INTO CARD (card_number, card_type, date_of_issuance, date_of_expiry, cvv_code, ref_account_id) VALUES ('5222333344445555', 'CREDIT', SYSDATE - 50, SYSDATE + 1045, '321', 4);
 INSERT INTO CARD (card_number, card_type, date_of_issuance, date_of_expiry, cvv_code, ref_account_id) VALUES ('4333444455556666', 'DEBIT', SYSDATE - 800, SYSDATE + 295, '654', 5);
+INSERT INTO CARD (card_number, card_type, date_of_issuance, date_of_expiry, cvv_code, ref_account_id) VALUES ('1234567890123456', 'DEBIT', SYSDATE - 1000, SYSDATE + 15, '999', 6);
+
 
 -- Beneficiaries
 INSERT INTO BENEFICIARY (beneficiary_name, phone, iban, ref_account_id, ref_customer_id) VALUES ('Alice Mother', '555-9001', 'IBAN12345678901', 1, 1);
