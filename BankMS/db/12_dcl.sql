@@ -37,3 +37,11 @@ CREATE USER teller_user IDENTIFIED BY teller123;
 -- Assign roles to users
 GRANT bank_admin_role TO admin_user;
 GRANT bank_teller_role TO teller_user;
+
+-- Demonstrate REVOKE
+REVOKE bank_admin_role FROM admin_user;
+GRANT bank_admin_role TO admin_user; -- grant it back so system keeps working
+
+-- Demonstration of REVOKE
+REVOKE SELECT ON BRANCH FROM bank_teller_role;
+GRANT SELECT ON BRANCH TO bank_teller_role; -- Re-granting to keep application functional

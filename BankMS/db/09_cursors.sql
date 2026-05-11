@@ -29,3 +29,48 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('----------------------------------');
 END;
 /
+
+-- Second anonymous block: Parameterized cursor, IF, EXCEPTION
+DECLARE
+    -- Parameterized cursor
+    CURSOR c_branch_accounts(p_branch_code VARCHAR2) IS
+        SELECT account_number, current_balance
+        FROM ACCOUNT
+        WHERE ref_branch_code = p_branch_code;
+        
+    v_acc ACCOUNT.account_number%TYPE;
+    v_bal ACCOUNT.current_balance%TYPE;
+    v_total_found NUMBER := 0;
+    
+    -- Custom exception
+    e_no_accounts EXCEPTION;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('--- BRANCH ACCOUNTS REPORT ---');
+    
+    OPEN c_branch_accounts('LHR-001');
+    LOOP
+        FETCH c_branch_accounts INTO v_acc, v_bal;
+        EXIT WHEN c_branch_accounts%NOTFOUND;
+        
+        v_total_found := v_total_found + 1;
+        
+        -- IF condition
+        IF v_bal > 50000 THEN
+            DBMS_OUTPUT.PUT_LINE('Account: ' || v_acc || ' (Premium) | Balance: $' || v_bal);
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('Account: ' || v_acc || ' (Standard) | Balance: $' || v_bal);
+        END IF;
+    END LOOP;
+    CLOSE c_branch_accounts;
+    
+    IF v_total_found = 0 THEN
+        RAISE e_no_accounts;
+    END IF;
+    
+EXCEPTION
+    WHEN e_no_accounts THEN
+        DBMS_OUTPUT.PUT_LINE('No accounts found for the specified branch.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END;
+/

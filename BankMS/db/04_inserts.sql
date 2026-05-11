@@ -75,4 +75,47 @@ INSERT INTO LOAN (loan_amount, interest_rate, term_months, application_date, app
 INSERT INTO LOAN_PAY (ref_loan_id, ref_customer_id, payment_date, payment_amount, remaining_balance, payment_status) VALUES (1, 1, SYSDATE - 30, 966.67, 49033.33, 'COMPLETED');
 INSERT INTO LOAN_PAY (ref_loan_id, ref_customer_id, payment_date, payment_amount, remaining_balance, payment_status) VALUES (3, 8, SYSDATE - 270, 1200.00, 98800.00, 'COMPLETED');
 
+-- Additional Customers to reach 20+
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('David Miller', '101 Pine St', '555-2001');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Sarah Wilson', '102 Oak St', '555-2002');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('James Moore', '103 Elm St', '555-2003');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Mary Taylor', '104 Birch St', '555-2004');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Robert Anderson', '105 Cedar St', '555-2005');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Linda Thomas', '106 Maple St', '555-2006');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('John Jackson', '107 Spruce St', '555-2007');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Karen White', '108 Ash St', '555-2008');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Richard Harris', '109 Willow St', '555-2009');
+INSERT INTO CUSTOMER (customer_name, customer_address, phone) VALUES ('Susan Martin', '110 Walnut St', '555-2010');
+
+-- Additional Accounts to reach 20+
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00011001', 11, 'QSB0000001', SYSDATE - 100, 1500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00012001', 12, 'QSB0000002', SYSDATE - 90, 2500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00013001', 13, 'QSB0000003', SYSDATE - 80, 3500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00014001', 14, 'QSB0000004', SYSDATE - 70, 4500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00015001', 15, 'QSB0000005', SYSDATE - 60, 5500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00016001', 16, 'QSB0000001', SYSDATE - 50, 6500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00017001', 17, 'QSB0000002', SYSDATE - 40, 7500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00018001', 18, 'QSB0000003', SYSDATE - 30, 8500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00019001', 19, 'QSB0000004', SYSDATE - 20, 9500.00);
+INSERT INTO ACCOUNT (account_number, ref_customer_id, ref_branch_code, date_of_creation, current_balance) VALUES ('ACC-00020001', 20, 'QSB0000005', SYSDATE - 10, 10500.00);
+
+-- Additional Transactions to reach 20+
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (4, 'QSB0000001', 'DEPOSIT', 100.00, SYSDATE - 8);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (5, 'QSB0000004', 'WITHDRAWAL', 200.00, SYSDATE - 7);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (6, 'QSB0000005', 'DEPOSIT', 300.00, SYSDATE - 6);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (7, 'QSB0000002', 'WITHDRAWAL', 400.00, SYSDATE - 5);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (8, 'QSB0000003', 'DEPOSIT', 500.00, SYSDATE - 4);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (9, 'QSB0000004', 'WITHDRAWAL', 600.00, SYSDATE - 3);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (10, 'QSB0000005', 'DEPOSIT', 700.00, SYSDATE - 2);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (11, 'QSB0000001', 'WITHDRAWAL', 800.00, SYSDATE - 1);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (12, 'QSB0000002', 'DEPOSIT', 900.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (13, 'QSB0000003', 'WITHDRAWAL', 100.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (14, 'QSB0000004', 'DEPOSIT', 200.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (15, 'QSB0000005', 'WITHDRAWAL', 300.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (16, 'QSB0000001', 'DEPOSIT', 400.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (17, 'QSB0000002', 'WITHDRAWAL', 500.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (18, 'QSB0000003', 'DEPOSIT', 600.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (19, 'QSB0000004', 'WITHDRAWAL', 700.00, SYSDATE);
+INSERT INTO TRANSACTION (ref_customer_id, ref_branch_code, transaction_type, transaction_amount, transaction_date) VALUES (20, 'QSB0000005', 'DEPOSIT', 800.00, SYSDATE);
+
 COMMIT;

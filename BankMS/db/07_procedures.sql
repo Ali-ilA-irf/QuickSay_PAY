@@ -129,6 +129,38 @@ EXCEPTION
 END pr_create_account;
 /
 
+-- Procedure demonstrating NESTED CALLS (calls pr_open_account inside)
+CREATE OR REPLACE PROCEDURE pr_customer_onboarding (
+    p_name        IN VARCHAR2,
+    p_address     IN VARCHAR2,
+    p_phone       IN VARCHAR2,
+    p_password    IN VARCHAR2,
+    p_branch_code IN VARCHAR2,
+    p_deposit     IN NUMBER,
+    p_employee_id IN NUMBER
+) AS
+    v_customer_id NUMBER;
+    v_account_num VARCHAR2(20);
+BEGIN
+    -- 1. Insert customer directly
+    INSERT INTO CUSTOMER (customer_name, customer_address, phone, password)
+    VALUES (p_name, p_address, p_phone, p_password)
+    RETURNING customer_id INTO v_customer_id;
+    
+    v_account_num := 'ACC-OB-' || seq_account_id.NEXTVAL;
+    
+    -- 2. Nested procedure call
+    pr_open_account(v_account_num, v_customer_id, p_branch_code, p_deposit, p_employee_id);
+    
+    DBMS_OUTPUT.PUT_LINE('Successfully onboarded: ' || p_name);
+EXCEPTION
+    WHEN OTHERS THEN 
+        ROLLBACK; 
+        DBMS_OUTPUT.PUT_LINE('Error during onboarding: ' || SQLERRM);
+        RAISE;
+END pr_customer_onboarding;
+/
+
 
 -- ════════════════════════════════════════════════════════════
 -- SECTION 2: GUI PROCEDURES (called by Python models)
